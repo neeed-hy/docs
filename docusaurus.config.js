@@ -65,15 +65,15 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'tutorial/intro',
+            docId: 'elementary/index',
             position: 'left',
-            label: 'Tutorial',
+            label: '基础知识',
           },
           {
             type: 'doc',
-            docId: 'example/example',
+            docId: 'tutorial/intro',
             position: 'left',
-            label: 'example',
+            label: 'Tutorial',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
