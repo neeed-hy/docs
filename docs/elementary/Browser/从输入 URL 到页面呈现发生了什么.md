@@ -1,10 +1,9 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
+description: '全流程串通'
 ---
 
 # 从输入 URL 到页面呈现发生了什么
-
-[[toc]]
 
 ## 大纲
 
