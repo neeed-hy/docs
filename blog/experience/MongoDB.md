@@ -5,23 +5,25 @@
 - 安装 docker、一些 docker 前置知识。可以参考[菜鸟教程](https://www.runoob.com/docker/ubuntu-docker-install.html)
 - 安装客户端 [Studio 3T](https://robomongo.org/) 有 Free 版本
 
+下列安装命令适用于 MongoDB 6.0 版本。
+
 ## 开始安装
 
 ```shell
-# 下载并启动mongoDB的docker
+# 下载并启动 MongoDB 的docker
 docker pull mongo
 # -v 后面的参数是映射到本地的数据，按需修改，不需要可以不加
 docker run -itd --name mongo -v /home/He-yu/mongo/data:/data/db -p 27017:27017 mongo --auth
-# 进入docker
+# 进入 docker
 docker exec -it mongo mongosh
 # 进入用户表，开始创建用户
 use admin
-# 创建root用户并切换过去
+# 创建 root 用户并切换过去
 db.createUser({ user:'root',pwd:'root',roles:['root']});
 db.auth('root', 'root');
-# 创建用户管理员用户admin，该用户同时可以访问操作所有数据库
+# 创建用户管理员用户 admin，该用户同时可以访问操作所有数据库
 db.createUser({ user:'admin',pwd:'admin',roles:[ { role:'userAdminAnyDatabase', db: 'admin'},"readWriteAnyDatabase"]});
-# 退出docker到本机终端，重启镜像
+# 退出 docker 到本机终端，重启镜像
 docker restart 【CONTAINER ID】
 ```
 
@@ -35,13 +37,16 @@ docker restart 【CONTAINER ID】
 
 ### 新建数据库
 
-参考资料[MongoDB 创建数据库](https://www.runoob.com/mongodb/mongodb-create-database.html)。
+参考资料
+
+- [MongoDB 创建数据库](https://www.runoob.com/mongodb/mongodb-create-database.html)
 
 ```shell
-# 查看现有数据库列表，不想看的可以忽略
 docker exec -it mongo mongosh
+# 切换到 admin 账户
 use admin
 db.auth('admin', 'admin');
+# 查看现有数据库列表
 show dbs
 # 新建数据库
 use study
@@ -55,17 +60,17 @@ show dbs
 
 参考资料
 
-- [MongoDB 添加用户](https://www.yiibai.com/mongodb/create-users.html)。
+- [MongoDB 添加用户](https://www.yiibai.com/mongodb/create-users.html)
 - [MongoDB 权限介绍](https://cloud.tencent.com/developer/article/1955526)
 
 ```shell
 docker exec -it mongo mongosh
-# 切换到admin账户管理用户
+# 切换到 admin 账户
 use admin
 db.auth('admin', 'admin');
-# 切换到study数据库
+# 切换到 study 数据库
 use study
-# 创建study数据库的具有读写权限的用户
+# 创建 study 数据库的具有读写权限的用户
 db.createUser({user: "study-admin",pwd: "study-admin",roles:[{role: "readWrite" , db:"study"}]});
 # 查看用户
 show users
