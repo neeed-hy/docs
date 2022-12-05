@@ -77,3 +77,15 @@ show users
 ```
 
 然后就可以使用新建的 study-admin 用户，通过 Studio 3T 来访问 study 数据库了。
+
+## 结合 nestJs 使用
+
+[nestJs](https://nestjs.com/)是一个功能强大的 node 后端框架。
+
+nestJs 官方提供了基于 [Mongoose](https://mongoosejs.com/) 的包来使用 MongoDB。
+
+官方文档给出了详细的使用说明，可供参考。
+
+参考资料
+
+- [官方文档](https://docs.nestjs.com/techniques/mongodb)
