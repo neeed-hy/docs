@@ -15,9 +15,8 @@ touch pnpm-workspace.yaml
 
 ```yaml
 packages:
-  # all packages in direct subdirs of packages/
+  - 'apps/*'
   - 'packages/*'
-  # exclude packages that are inside test directories
   - '!**/test/**'
 ```
 
